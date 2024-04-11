@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clip path</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .picture {
+        margin: auto;
+        width: 60%;
+        height: 40vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        background-color: cyan;
+        /* border:2px solid black; */
+        box-shadow: 1rem 1rem 1rem black;
+        border-radius: 5px;
+        padding: 2rem;
+      }
+      .photo {
+        height: 15rem;
+        width: 15rem;
+        
+        clip-path: circle(50% at 50% 50%);
+        background-color: chocolate;
+    
+        transition:all 2s;
+        box-shadow: 0.4rem  0  0.3rem black;
+    
+      }
+      .shoepart {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 13rem;
+      }
+      select {
+        width: 10rem;
+        height: 2rem;
+        font-size: 1.5rem;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        text-align: center;
+        border:2px solid rgb(74, 8, 205);
+font-weight: bolder;
+      }
+      .clips {
+        min-width: 10rem;
+        height: 2rem;
+        border: 2px solid rgb(37, 56, 224);
+        /* text-align: center; */
+        display: grid;
+        place-items: center;
+        transition: all .3s;
+        font-size: 1.2rem;
+        font-weight: bolder;
+        color:rgb(119, 7, 223);
+      }
+      @media (max-width: 420px) {
+        .picture {
+          margin: auto;
+          width: 80%;
+          height: 45vh;
+        }
+        .photo {
+          height: 12rem;
+          width: 12rem;
+          transition: all 2s;
+        }
+        select {
+        width: 17rem;
+        height: 2.6rem;
+        margin-top: 1rem;
+      }
+      .clips {
+        width:17rem;
+        margin-top: 3rem;
+        height: 2.6rem;
+      }
+      .shoepart {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 5rem;
+      }
+      .picture{
+        margin-top: 1rem;
+      }
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="picture">
+      <div class="photo"></div>
+    </div>
+    <div class="shoepart">
+      <div class="select">
+        <select name="" id="select" title="select">
+          <option value="circle">circle</option>
+          <option value="tringle">tringle</option>
+          <option value="trapisium">trapisium</option>
+          <option value="halfcircle">halfcircle</option>
+          <option value="polygon">polygon</option>
+        </select>
+      </div>
+      <div class="clips">
+        circle(50% at 0% 50%)
+      </div>
+    </div>
+    <script>
+      let main = document.querySelector("#select");
+      let content = document.querySelector(".photo");
+      let clips=document.querySelector(".clips");
+
+      main.addEventListener("change", (e) => {
+        let value = e.target.value;
+        console.log(value);
+        if (value == "polygon") {
+          content.style.clipPath = `circle(70% at 0% 50%)`;
+          clips.innerHTML='circle(70% at 0% 50%)';
+          console.log("polygon");
+        }
+        if (value == "circle") {
+          content.style.clipPath = `circle(50% at 50% 50%)`;
+          clips.innerHTML='circle(50% at 50% 50%)';
+          console.log("cilw");
+        }
+        if (value == "trapisium") {
+          content.style.clipPath =`polygon(25% 0%,75% 0%, 100% 100%,0% 100%)`;
+          clips.innerHTML='trapisium(70% at 0% 50%)';
+          console.log("trapisium");
+        }
+       
+        if (value == "tringle") {
+          content.style.clipPath =`polygon(50% 0%,0% 100%, 100% 100%)`;
+          clips.innerHTML='trapisium(70% at 0% 50%)';
+          console.log("trapisium");
+        }
+      });
+    </script>
+  </body>
+</html>
