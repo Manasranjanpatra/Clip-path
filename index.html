@@ -107,7 +107,7 @@ font-weight: bolder;
           <option value="circle">circle</option>
           <option value="tringle">tringle</option>
           <option value="trapisium">trapisium</option>
-          <option value="halfcircle">halfcircle</option>
+          <option value="hectagon">halfcircle</option>
           <option value="polygon">polygon</option>
         </select>
       </div>
@@ -138,10 +138,15 @@ font-weight: bolder;
           clips.innerHTML='trapisium(70% at 0% 50%)';
           console.log("trapisium");
         }
-       
+          if (value == "hectagon") {
+          content.style.clipPath =`polygon(50% 0%,100% 25%, 100% 75%,50% 100%.0% 75%,0% 25%)`;
+          clips.innerHTML='polygon(50% 0%,100% 25%, 100% 75%,50% 100%.0% 75%,0% 25%)';
+          console.log("hectagon");
+        }
+        
         if (value == "tringle") {
           content.style.clipPath =`polygon(50% 0%,0% 100%, 100% 100%)`;
-          clips.innerHTML='trapisium(70% at 0% 50%)';
+          clips.innerHTML='polygon(50% 0%,0% 100%, 100% 100%)';
           console.log("trapisium");
         }
       });
